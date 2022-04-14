@@ -1,0 +1,31 @@
+
+
+
+<div>	<div class="login-container">
+		<div class="login-content">
+			<mat-toolbar class="login-toolbar" color="primary">LOGIN</mat-toolbar>
+			<mat-card>
+				<form [formGroup]="loginForm" #formDirective="ngForm"  (ngSubmit)="onSubmit(loginForm, formDirective)">
+					<mat-form-field>
+						<mat-icon matPrefix></mat-icon>
+						<input autofocus type="text" matInput placeholder="Email or Username" formControlName="email" >
+					</mat-form-field>
+
+					<mat-form-field>
+						<mat-icon matPrefix></mat-icon>
+						<input type="password" autocomplete="false" matInput placeholder="Password" formControlName="password" >
+						<mat-error *ngIf="checkValidation('password')">
+							{{ getErrorPassword() }}
+						  </mat-error>
+					</mat-form-field>
+					
+
+					<button type="submit" [disabled]="loginForm.invalid" mat-raised-button color="primary">LOGIN</button>
+        </form><br>
+        
+          <span> If You don't have a account yet please <a style="color: #ff791a;" routerLink ='/register'>Register</a></span>				
+			</mat-card>
+		</div>
+	</div>
+
+</div>
